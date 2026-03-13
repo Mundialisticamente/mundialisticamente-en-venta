@@ -1,152 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mundialísticamente | Recomendaciones</title>
+
+<title>Mundialísticamente | Productos y Noticias de Fútbol</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Poppins,sans-serif}
-html{scroll-behavior:smooth}
-body{background:#0b0f1a;color:white}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Poppins,sans-serif
+}
+
+body{
+background:#0b0f1a;
+color:white
+}
 
 header{
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:20px 8%;
- background:#020617;
- position:sticky;
- top:0;
- z-index:1000
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#020617;
+position:sticky;
+top:0;
+z-index:1000
 }
 
-header h1{color:#22c55e}
+header h1{
+color:#22c55e
+}
 
-nav a{margin:0 12px;color:white;text-decoration:none;font-weight:500}
-nav a:hover{color:#22c55e}
+nav a{
+margin:0 12px;
+color:white;
+text-decoration:none
+}
+
+nav a:hover{
+color:#22c55e
+}
 
 .hero{
- height:75vh;
- display:flex;
- flex-direction:column;
- justify-content:center;
- align-items:center;
- text-align:center;
- background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=60') center/cover
+height:70vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
+url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=60') center/cover
 }
 
-.hero h2{font-size:44px;margin-bottom:10px}
-.hero p{margin-bottom:20px}
+.hero h2{
+font-size:42px;
+margin-bottom:10px
+}
 
 .hero button{
- padding:14px 30px;
- background:#22c55e;
- border:none;
- border-radius:8px;
- color:white;
- font-size:16px;
- cursor:pointer
+padding:14px 30px;
+background:#22c55e;
+border:none;
+border-radius:8px;
+color:white;
+cursor:pointer
 }
 
-section{padding:70px 8%}
+section{
+padding:70px 8%
+}
 
 .section-title{
- text-align:center;
- margin-bottom:40px;
- color:#facc15
+text-align:center;
+margin-bottom:40px;
+color:#facc15
+}
+
+.search{
+text-align:center;
+margin-bottom:40px
+}
+
+.search input{
+padding:12px;
+width:300px;
+border:none;
+border-radius:6px
 }
 
 .grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
- gap:30px
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px
 }
 
 .card{
- background:#111827;
- border-radius:12px;
- padding:20px;
- transition:.3s;
- box-shadow:0 0 20px rgba(0,0,0,.4)
+background:#111827;
+border-radius:12px;
+padding:20px;
+box-shadow:0 0 20px rgba(0,0,0,.4)
 }
-
-.card:hover{transform:translateY(-8px)}
 
 .card img{
- width:100%;
- height:180px;
- object-fit:cover;
- border-radius:10px;
- margin-bottom:15px
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:15px
 }
 
-.card h3{color:#22c55e;margin-bottom:8px}
-.card p{font-size:14px;margin-bottom:15px}
+.card h3{
+color:#22c55e;
+margin-bottom:8px
+}
 
 .buy-btn{
- display:inline-block;
- padding:10px 16px;
- background:#22c55e;
- color:white;
- text-decoration:none;
- border-radius:6px;
- font-size:14px
+display:inline-block;
+padding:10px 16px;
+background:#22c55e;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-size:14px
 }
 
-.buy-btn:hover{background:#16a34a}
+.buy-btn:hover{
+background:#16a34a
+}
 
-.news{background:#111827}
-
-.news-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
- gap:25px
+.news{
+background:#111827
 }
 
 .news-card{
- background:#0b0f1a;
- padding:18px;
- border-radius:10px
+background:#0b0f1a;
+padding:18px;
+border-radius:10px
 }
 
 .news-card img{
- width:100%;
- height:180px;
- object-fit:cover;
- border-radius:8px;
- margin-bottom:10px
-}
-
-.news-card a{color:#22c55e;text-decoration:none}
-
-.contact form{
- max-width:500px;
- margin:auto;
- display:flex;
- flex-direction:column;
- gap:15px
-}
-
-.contact input,.contact textarea{padding:12px;border-radius:6px;border:none}
-
-.contact button{
- padding:12px;
- background:#22c55e;
- border:none;
- border-radius:6px;
- color:white;
- font-weight:600;
- cursor:pointer
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:10px
 }
 
 footer{
- text-align:center;
- padding:30px;
- background:#020617;
- color:#aaa;
- margin-top:40px
+text-align:center;
+padding:30px;
+background:#020617;
+color:#aaa
 }
 
 </style>
@@ -155,121 +166,130 @@ footer{
 <body>
 
 <header>
+
 <h1>⚽ Mundialísticamente</h1>
+
 <nav>
-<a href="#inicio">Inicio</a>
-<a href="#deportes">Deportes</a>
-<a href="#tech">Tecnología</a>
-<a href="#hogar">Hogar</a>
+<a href="#productos">Productos</a>
+<a href="#top">Más Vendidos</a>
 <a href="#noticias">Noticias</a>
 </nav>
+
 </header>
 
-<section id="inicio" class="hero">
-<h2>Productos Recomendados y Noticias</h2>
-<p>Encuentra productos populares y las últimas noticias deportivas</p>
-<button onclick="scrollToSection('deportes')">Explorar</button>
+<section class="hero">
+
+<h2>Productos y Noticias del Mundo del Fútbol</h2>
+
+<button onclick="scrollToSection('productos')">
+Explorar
+</button>
+
 </section>
 
-<section id="deportes">
-<h2 class="section-title">⚽ Productos Deportivos</h2>
-<div class="grid" id="sportsGrid"></div>
+<section id="productos">
+
+<h2 class="section-title">🛒 Productos Recomendados</h2>
+
+<div class="search">
+
+<input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchProducts()">
+
+</div>
+
+<div class="grid" id="productGrid"></div>
+
 </section>
 
-<section id="tech">
-<h2 class="section-title">💻 Tecnología</h2>
-<div class="grid" id="techGrid"></div>
-</section>
+<section id="top">
 
-<section id="hogar">
-<h2 class="section-title">🏠 Hogar</h2>
-<div class="grid" id="homeGrid"></div>
+<h2 class="section-title">🔥 Más Vendidos</h2>
+
+<div class="grid" id="topGrid"></div>
+
 </section>
 
 <section id="noticias" class="news">
-<h2 class="section-title">📰 Noticias de Fútbol</h2>
-<div class="news-grid" id="newsGrid"></div>
-</section>
 
-<section class="contact">
-<h2 class="section-title">Contacto</h2>
-<form onsubmit="sendMessage(event)">
-<input type="text" placeholder="Nombre" required>
-<input type="email" placeholder="Email" required>
-<textarea rows="4" placeholder="Mensaje"></textarea>
-<button>Enviar</button>
-</form>
+<h2 class="section-title">📰 Noticias de Fútbol</h2>
+
+<div class="grid" id="newsGrid"></div>
+
 </section>
 
 <footer>
+
 <p>© 2026 Mundialísticamente</p>
+
 </footer>
 
 <script>
 
-// PRODUCTOS CON IMÁGENES ESTABLES
+const products=[
 
-const sportsProducts=[
 {
-name:"Balón de Fútbol Profesional",
-img:"https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=800&q=60",
-desc:"Balón ideal para partidos y entrenamientos.",
+name:"Balón Profesional",
+img:"https://images.unsplash.com/photo-1575361204480-aadea25e6e68",
+desc:"Balón ideal para entrenar y jugar partidos.",
 link:"https://www.amazon.com/"
 },
+
 {
 name:"Botines de Fútbol",
-img:"https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=60",
-desc:"Botines ligeros y cómodos para jugar fútbol.",
+img:"https://images.unsplash.com/photo-1517649763962-0c623066013b",
+desc:"Botines ligeros para mayor velocidad.",
 link:"https://www.amazon.com/"
-}
-]
+},
 
-const techProducts=[
 {
 name:"Auriculares Bluetooth",
-img:"https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=800&q=60",
-desc:"Auriculares inalámbricos con gran calidad de sonido.",
-link:"https://www.amazon.com/"
-},
-{
-name:"Smartwatch Deportivo",
-img:"https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=60",
-desc:"Reloj inteligente para monitorear actividad física.",
+img:"https://images.unsplash.com/photo-1518444065439-e933c06ce9cd",
+desc:"Sonido perfecto para entrenar.",
 link:"https://www.amazon.com/"
 }
+
 ]
 
-const homeProducts=[
+const topProducts=[
+
 {
-name:"Cafetera Automática",
-img:"https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=60",
-desc:"Prepara café delicioso cada mañana.",
+name:"Camiseta de Fútbol",
+img:"https://images.unsplash.com/photo-1522778119026-d647f0596c20",
+desc:"Camiseta deportiva popular.",
 link:"https://www.amazon.com/"
 },
+
 {
-name:"Lámpara LED Moderna",
-img:"https://images.unsplash.com/photo-1507477338202-487281e6c27e?auto=format&fit=crop&w=800&q=60",
-desc:"Iluminación elegante para cualquier habitación.",
+name:"Balón Adidas",
+img:"https://images.unsplash.com/photo-1518091043644-c1d4457512c6",
+desc:"Balón profesional.",
 link:"https://www.amazon.com/"
 }
+
 ]
 
-function renderProducts(list,containerId){
+function renderProducts(list,container){
 
-const grid=document.getElementById(containerId)
+const grid=document.getElementById(container)
 
 grid.innerHTML=""
 
 list.forEach(p=>{
 
 const card=document.createElement("div")
+
 card.className="card"
 
 card.innerHTML=`
+
 <img src="${p.img}">
+
 <h3>${p.name}</h3>
+
 <p>${p.desc}</p>
+
 <a class="buy-btn" href="${p.link}" target="_blank">Ver en Amazon</a>
+
 `
 
 grid.appendChild(card)
@@ -278,34 +298,50 @@ grid.appendChild(card)
 
 }
 
-// NOTICIAS AUTOMÁTICAS
+function searchProducts(){
+
+const input=document.getElementById("searchInput").value.toLowerCase()
+
+const filtered=products.filter(p=>p.name.toLowerCase().includes(input))
+
+renderProducts(filtered,"productGrid")
+
+}
 
 async function fetchNews(){
 
-const API_KEY = "pub_633372cd23894aec852d33f74e389d3d"
+const API_KEY="pub_633372cd23894aec852d33f74e389d3d"
 
-const url = `https://newsdata.io/api/1/news?apikey=${API_KEY}&category=sports&language=es`
+const url=`https://newsdata.io/api/1/news?apikey=${API_KEY}&q=futbol&language=es`
 
 try{
 
-const res = await fetch(url)
-const data = await res.json()
+const res=await fetch(url)
 
-const grid = document.getElementById("newsGrid")
+const data=await res.json()
+
+const grid=document.getElementById("newsGrid")
+
 grid.innerHTML=""
 
 data.results.slice(0,6).forEach(article=>{
 
-let img = article.image_url || "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=60"
+const img=article.image_url || "https://images.unsplash.com/photo-1508098682722-e99c43a406b2"
 
 const card=document.createElement("div")
+
 card.className="news-card"
 
 card.innerHTML=`
+
 <img src="${img}">
+
 <h3>${article.title}</h3>
-<p>${article.description ? article.description.substring(0,120) : ""}...</p>
-<a href="${article.link}" target="_blank">Leer noticia completa</a>
+
+<p>${article.description?article.description.substring(0,120):""}</p>
+
+<a href="${article.link}" target="_blank" class="buy-btn">Leer noticia</a>
+
 `
 
 grid.appendChild(card)
@@ -314,35 +350,27 @@ grid.appendChild(card)
 
 }catch(e){
 
-document.getElementById("newsGrid").innerHTML =
-"<p>No se pudieron cargar las noticias.</p>"
+document.getElementById("newsGrid").innerHTML="No se pudieron cargar noticias"
 
 }
 
 }
+
 function scrollToSection(id){
- document.getElementById(id).scrollIntoView({behavior:"smooth"})
+
+document.getElementById(id).scrollIntoView({behavior:"smooth"})
+
 }
 
-function sendMessage(e){
- e.preventDefault()
- alert("Mensaje enviado correctamente")
-}
+renderProducts(products,"productGrid")
 
-renderProducts(sportsProducts,"sportsGrid")
-renderProducts(techProducts,"techGrid")
-renderProducts(homeProducts,"homeGrid")
+renderProducts(topProducts,"topGrid")
 
 fetchNews()
+
+setInterval(fetchNews,600000)
 
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
