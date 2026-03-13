@@ -282,46 +282,53 @@ grid.appendChild(card)
 
 async function fetchNews(){
 
-try{
-
-const url="https://api.rss2json.com/v1/api.json?rss_url=https://www.espn.com/espn/rss/soccer/news"
-
-const res=await fetch(url)
-const data=await res.json()
-
 const grid=document.getElementById("newsGrid")
+
 grid.innerHTML=""
 
-if(!data.items){
-grid.innerHTML="<p>No se pudieron cargar las noticias.</p>"
-return
+const noticias=[
+{
+title:"Últimas noticias del fútbol mundial",
+link:"https://news.google.com/search?q=futbol&hl=es"
+},
+{
+title:"Resultados y noticias de la Champions League",
+link:"https://news.google.com/search?q=champions+league&hl=es"
+},
+{
+title:"Noticias recientes de La Liga",
+link:"https://news.google.com/search?q=la+liga&hl=es"
+},
+{
+title:"Actualidad de la Premier League",
+link:"https://news.google.com/search?q=premier+league&hl=es"
+},
+{
+title:"Noticias sobre Messi",
+link:"https://news.google.com/search?q=messi&hl=es"
+},
+{
+title:"Noticias sobre Cristiano Ronaldo",
+link:"https://news.google.com/search?q=cristiano+ronaldo&hl=es"
 }
+]
 
-data.items.slice(0,6).forEach(article=>{
+noticias.forEach(n=>{
 
 const card=document.createElement("div")
 card.className="news-card"
 
 card.innerHTML=`
-<img src="https://source.unsplash.com/800x600/?soccer,football">
-<h3>${article.title}</h3>
-<p>${article.pubDate.substring(0,10)}</p>
-<a href="${article.link}" target="_blank">Leer noticia</a>
+<img src="https://source.unsplash.com/800x600/?soccer">
+<h3>${n.title}</h3>
+<a href="${n.link}" target="_blank">Leer noticias</a>
 `
 
 grid.appendChild(card)
 
 })
 
-}catch(e){
-
-document.getElementById("newsGrid").innerHTML=
-"<p>Error cargando noticias.</p>"
-
 }
-
-}
-
 function scrollToSection(id){
  document.getElementById(id).scrollIntoView({behavior:"smooth"})
 }
@@ -341,5 +348,6 @@ fetchNews()
 
 </body>
 </html>
+
 
 
