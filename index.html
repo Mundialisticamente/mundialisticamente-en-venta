@@ -41,7 +41,8 @@ color:#22c55e
 nav a{
 margin:0 12px;
 color:white;
-text-decoration:none
+text-decoration:none;
+font-weight:500
 }
 
 nav a:hover{
@@ -61,7 +62,7 @@ url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fi
 
 .hero h2{
 font-size:42px;
-margin-bottom:10px
+margin-bottom:15px
 }
 
 .hero button{
@@ -70,7 +71,12 @@ background:#22c55e;
 border:none;
 border-radius:8px;
 color:white;
+font-size:16px;
 cursor:pointer
+}
+
+.hero button:hover{
+background:#16a34a
 }
 
 section{
@@ -105,7 +111,12 @@ gap:30px
 background:#111827;
 border-radius:12px;
 padding:20px;
-box-shadow:0 0 20px rgba(0,0,0,.4)
+box-shadow:0 0 20px rgba(0,0,0,.4);
+transition:0.3s
+}
+
+.card:hover{
+transform:translateY(-6px)
 }
 
 .card img{
@@ -119,6 +130,11 @@ margin-bottom:15px
 .card h3{
 color:#22c55e;
 margin-bottom:8px
+}
+
+.card p{
+font-size:14px;
+margin-bottom:15px
 }
 
 .buy-btn{
@@ -157,7 +173,8 @@ footer{
 text-align:center;
 padding:30px;
 background:#020617;
-color:#aaa
+color:#aaa;
+margin-top:40px
 }
 
 </style>
@@ -192,9 +209,7 @@ Explorar
 <h2 class="section-title">🛒 Productos Recomendados</h2>
 
 <div class="search">
-
 <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchProducts()">
-
 </div>
 
 <div class="grid" id="productGrid"></div>
@@ -229,22 +244,22 @@ const products=[
 
 {
 name:"Balón Profesional",
-img:"https://images.unsplash.com/photo-1575361204480-aadea25e6e68",
+img:"https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=800&q=60",
 desc:"Balón ideal para entrenar y jugar partidos.",
 link:"https://www.amazon.com/"
 },
 
 {
 name:"Botines de Fútbol",
-img:"https://images.unsplash.com/photo-1517649763962-0c623066013b",
+img:"https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=60",
 desc:"Botines ligeros para mayor velocidad.",
 link:"https://www.amazon.com/"
 },
 
 {
 name:"Auriculares Bluetooth",
-img:"https://images.unsplash.com/photo-1518444065439-e933c06ce9cd",
-desc:"Sonido perfecto para entrenar.",
+img:"https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=800&q=60",
+desc:"Auriculares perfectos para entrenar.",
 link:"https://www.amazon.com/"
 }
 
@@ -254,15 +269,15 @@ const topProducts=[
 
 {
 name:"Camiseta de Fútbol",
-img:"https://images.unsplash.com/photo-1522778119026-d647f0596c20",
+img:"https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=800&q=60",
 desc:"Camiseta deportiva popular.",
 link:"https://www.amazon.com/"
 },
 
 {
-name:"Balón Adidas",
-img:"https://images.unsplash.com/photo-1518091043644-c1d4457512c6",
-desc:"Balón profesional.",
+name:"Balón Adidas Profesional",
+img:"https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=800&q=60",
+desc:"Balón de calidad profesional.",
 link:"https://www.amazon.com/"
 }
 
@@ -317,16 +332,20 @@ const url=`https://newsdata.io/api/1/news?apikey=${API_KEY}&q=futbol&language=es
 try{
 
 const res=await fetch(url)
-
 const data=await res.json()
 
 const grid=document.getElementById("newsGrid")
 
 grid.innerHTML=""
 
+if(!data.results){
+grid.innerHTML="No hay noticias disponibles"
+return
+}
+
 data.results.slice(0,6).forEach(article=>{
 
-const img=article.image_url || "https://images.unsplash.com/photo-1508098682722-e99c43a406b2"
+const img=article.image_url || "https://source.unsplash.com/800x600/?soccer"
 
 const card=document.createElement("div")
 
@@ -350,20 +369,17 @@ grid.appendChild(card)
 
 }catch(e){
 
-document.getElementById("newsGrid").innerHTML="No se pudieron cargar noticias"
+document.getElementById("newsGrid").innerHTML="No se pudieron cargar las noticias"
 
 }
 
 }
 
 function scrollToSection(id){
-
 document.getElementById(id).scrollIntoView({behavior:"smooth"})
-
 }
 
 renderProducts(products,"productGrid")
-
 renderProducts(topProducts,"topGrid")
 
 fetchNews()
