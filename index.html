@@ -287,10 +287,17 @@ Explorar productos
 
 <div class="hero-categories">
 
-<div class="hero-cat">⚽ Deportes</div>
-<div class="hero-cat">💻 Tecnología</div>
-<div class="hero-cat">🏠 Hogar</div>
-<div class="hero-cat">🔥 Tendencias</div>
+<div class="hero-cat" onclick="filterCategory('futbol')">⚽ Camisetas de fútbol</div>
+
+<div class="hero-cat" onclick="filterCategory('deporte')">🏋️ Accesorios deportivos</div>
+
+<div class="hero-cat" onclick="filterCategory('ropa')">👕 Ropa deportiva</div>
+
+<div class="hero-cat" onclick="filterCategory('tecnologia')">💻 Tecnología</div>
+
+<div class="hero-cat" onclick="filterCategory('celulares')">📱 Celulares</div>
+
+<div class="hero-cat" onclick="filterCategory('audio')">🎧 Audífonos</div>
 
 </div>
 
@@ -339,46 +346,55 @@ Explorar productos
 const products=[
 
 {
-name:"Balón Profesional",
-img:"https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=800&q=60",
-desc:"Balón ideal para entrenar y jugar partidos.",
-link:"https://www.amazon.com/"
-},
-
-{
-name:"Botines de Fútbol",
-img:"https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=60",
-desc:"Botines ligeros para mayor velocidad.",
-link:"https://www.amazon.com/"
-},
-
-{
-name:"Auriculares Bluetooth",
-img:"https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=800&q=60",
-desc:"Auriculares perfectos para entrenar.",
-link:"https://www.amazon.com/"
-}
-
-]
-
-const topProducts=[
-
-{
-name:"Camiseta de Fútbol",
+name:"Camisetas de fútbol",
+category:"futbol",
 img:"https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=800&q=60",
-desc:"Camiseta deportiva popular.",
+desc:"Encuentra camisetas oficiales y deportivas de equipos populares.",
 link:"https://www.amazon.com/"
 },
 
 {
-name:"Balón Adidas Profesional",
-img:"https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=800&q=60",
-desc:"Balón de calidad profesional.",
+name:"Accesorios para entrenamiento",
+category:"deporte",
+img:"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=60",
+desc:"Accesorios para gimnasio, entrenamiento y actividad física.",
+link:"https://www.amazon.com/"
+},
+
+{
+name:"Ropa deportiva",
+category:"ropa",
+img:"https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=60",
+desc:"Ropa cómoda para deporte, gimnasio y entrenamiento.",
+link:"https://www.amazon.com/"
+},
+
+{
+name:"Celulares y smartphones",
+category:"celulares",
+img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=60",
+desc:"Descubre smartphones modernos y populares.",
+link:"https://www.amazon.com/"
+},
+
+{
+name:"Audífonos inalámbricos",
+category:"audio",
+img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=60",
+desc:"Audífonos Bluetooth y dispositivos de audio.",
+link:"https://www.amazon.com/"
+},
+
+{
+name:"Gadgets y tecnología",
+category:"tecnologia",
+img:"https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=60",
+desc:"Gadgets tecnológicos y dispositivos inteligentes.",
 link:"https://www.amazon.com/"
 }
 
 ]
-
+  
 function renderProducts(list,container){
 
 const grid=document.getElementById(container)
@@ -484,6 +500,14 @@ document.getElementById("newsGrid").innerHTML="No se pudieron cargar las noticia
 
 }
 
+function filterCategory(cat){
+
+const filtered = products.filter(p => p.category === cat)
+
+renderProducts(filtered,"productGrid")
+
+}
+
 function scrollToSection(id){
 document.getElementById(id).scrollIntoView({behavior:"smooth"})
 }
@@ -496,6 +520,7 @@ fetchNews()
 setInterval(fetchNews,600000)
 
 </script>
+  
 
 </body>
 </html>
