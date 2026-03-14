@@ -431,7 +431,10 @@ function searchProducts(){
 
 const input=document.getElementById("searchInput").value.toLowerCase()
 
-const filtered=products.filter(p=>p.name.toLowerCase().includes(input))
+const filtered=products.filter(p =>
+p.name.toLowerCase().includes(input) ||
+p.category.toLowerCase().includes(input)
+)
 
 renderProducts(filtered,"productGrid")
 
@@ -513,7 +516,9 @@ document.getElementById(id).scrollIntoView({behavior:"smooth"})
 }
 
 renderProducts(products,"productGrid")
-  
+
+renderProducts(topProducts,"topGrid")
+
 fetchNews()
 
 setInterval(fetchNews,600000)
