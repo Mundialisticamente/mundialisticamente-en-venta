@@ -452,7 +452,7 @@ async function fetchNews(){
 
 const API_KEY="pub_633372cd23894aec852d33f74e389d3d"
 
-const url=`https://newsdata.io/api/1/news?apikey=${API_KEY}&q=tecnologia OR deportes&language=es`
+const url=`https://newsdata.io/api/1/news?apikey=${API_KEY}&category=technology,sports&language=es`
 
 try{
 
@@ -513,8 +513,7 @@ document.getElementById(id).scrollIntoView({behavior:"smooth"})
 }
 
 renderProducts(products,"productGrid")
-renderProducts(topProducts,"topGrid")
-
+  
 fetchNews()
 
 setInterval(fetchNews,600000)
